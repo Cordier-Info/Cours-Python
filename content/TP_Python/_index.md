@@ -11,4 +11,4 @@ weight : 0
 
 
 
-Des exercices couvrant l'ensemble des chapitres du cours.
+Des exercices plus ou moins difficiles...
