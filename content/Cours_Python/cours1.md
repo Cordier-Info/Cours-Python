@@ -12,12 +12,11 @@ pre : "<b>1. </b>"
 Python est un langage de programmation interprété développé par Guido van Rossum en 1989. Langage impératif de haut-niveau doté d'une syntaxe simple, Python s'adapte à de nombreux contextes grâce à sa modularité ; une importante librairie de modules et packages permet en effet d'étendre ses capacités.
 
 &nbsp;
-
 &nbsp;
 
 ## Shell et IDE
 
-Python possède son propre shell (interface en ligne de commande) : l'utilisateur entre une commande Python qui est interprétée immédiatement lorsque `Entrée` est tapée.
+Python possède son propre shell (interface en ligne de commande) : l'utilisateur entre une commande Python qui est interprétée immédiatement lorsque `Entrée` est tapée.  
 Au lancement, le shell Python, poli, se présente : 
 
 `Python 3.7.3 (default, Mar 27 2019, 16:54:48)`   
@@ -26,12 +25,12 @@ Au lancement, le shell Python, poli, se présente :
 `>>>`
 
 Les 3 chevrons sont l'invite (ou prompt) où les commandes seront écrites.  
-IPython, un shell plus évolué, utilise `[1]` comme invite (où le chiffre dans les crochets s'incrémente à chaque commande.  
+IPython, un shell plus évolué, utilise `[1]` comme invite (où le chiffre dans les crochets s'incrémente à chaque commande).  
 Pour sortir du shell classique, il faut taper `exit()`, et `exit` ou `quit` pour sortie du shell IPython.
 
 On peut tout à fait exécuter des commandes Python une à une dans le shell.  
 Une commande qui renvoie un résultat est appelée **expression**, alors qu'une commande qui ne renvoie rien est une **instruction**.  
-Toute fonction est une expression, mais certaines ont en plus un **effet** sur l'environnement comme `print()` qui permet d'afficher une chaîne de caractère dans le shell ou dans un fichier (elle retourne aussi la valeur `none` qui est omise dans ce cas par le shell).
+Toute fonction est une expression, mais certaines ont en plus un **effet** sur l'environnement comme `print()` qui permet d'afficher une chaîne de caractère dans le shell ou dans un fichier (elle retourne aussi la valeur `None` qui est omise dans ce cas par le shell).
 
 
 ```python
@@ -52,9 +51,16 @@ print(a)
 
 `7`
 
-Pour des projets plus complexes nécessitant de nombreuses instructions ou expressions, on écrit l'ensemble de ces commandes (le programme) dans un éditeur de texte et on enregistre le fichier avec une extension `.py`. On demande alors à l'interprète Python d'exécuter l'ensemble du script en utilisant la commande `python nom_du_fichier.py` dans le shell de l'OS. L'interprète n'affiche plus, dans ce cas, les différents retours dans le shell, seuls les effets ont un... effet.  
+Pour les projets plus complexes nécessitant d'enchaîner les instructions, on écrit l'ensemble de ces commandes (le programme) dans un éditeur de texte et on enregistre le fichier avec une extension `.py`.  
+On demande alors à l'interprète Python d'exécuter l'ensemble du script en utilisant la commande `python nom_du_fichier.py` dans le shell de l'OS. Les différents retours dans le shell ne sont alors plus affichés, seuls les effets ont un... effet.  
 
-Il est important d'ajouter des **commentaires** à son code dans le script afin qu'il soit plus facilement compréhensible et donc partageable. Les commentaires sont placés derrière un hastag `#` les rendant invisible pour l'interprète.
+Le plus simple pour coder est d'utiliser un environnement de travail (**IDE** pour "integrated development environment") qui combine un éditeur de code et un shell Python permettant d'exécuter le script entier ou une partie directement via l'interface. 
+
+{{%notice info%}}
+
+Cela fait parti du bon usage en informatique de **commenter son code** afin qu'il soit plus facilement compréhensible et donc partageable. En Python, les commentaires sont placés derrière un hastag `#` les rendant invisible pour l'interprète.
+
+{{%/notice%}}
 
 ```Python
 import math  # pour pouvoir utiliser pi (commentaire ignoré par l'interprète)
@@ -62,21 +68,20 @@ r = 3  # rayon
 2*math.pi*r  # circonférence du cercle de rayon r
 ```
 
-
-
-Mais le plus simple est d'utiliser un environnement de travail (**IDE** pour "integrated development environment") qui combine un éditeur de texte et un shell Python permettant d'exécuter le script entier ou une partie directement via l'interface. 
-
-L'installation d'[Anaconda](https://www.anaconda.com/products/individual) rend disponible les principales bibliothèques scientifiques Python ainsi que le preformant IDE **Spyder** ou encore **Jupyterlab** (très intéressant pour les présentations de projet car associant dans une même interface texte et code).
-
-[Les oraux de Centrale](https://www.concours-centrale-supelec.fr/CentraleSupelec/SujetsOral/TSI) "Mathématiques 2" et "Physique-chimie 2" utilisent l'IDE [Pyzo](https://pyzo.org). Les ordinateurs du lycée ont les IDE EduPython et Pyzo disponibles sur le serveur `S:\`. Vous pouvez aussi utiliser pour dépanner l'IDE minimale en ligne **Repl.it** depuis le repository du TP.
-
-![](/pizo.png)
-
+&nbsp;
 &nbsp;
 
+## Installation
+
+L'installation d'[Anaconda](https://www.anaconda.com/products/individual) rend disponible les principales bibliothèques scientifiques Python ainsi que le preformant IDE **Spyder** ou encore **Jupyterlab** (très intéressant pour les présentations de projets car associant dans une même interface texte et code pour former un *notebook*).
+
+[Les oraux de Centrale](https://www.concours-centrale-supelec.fr/CentraleSupelec/SujetsOral/TSI) "Mathématiques 2" et "Physique-chimie 2" utilisent l'IDE [Pyzo](https://pyzo.org). Les ordinateurs du lycée ont les IDE EduPython et Pyzo disponibles sur le serveur `S:\`. Vous pouvez aussi utiliser pour dépanner l'IDE en ligne **Repl.it** depuis le repository du TP.
+
+![](/pyzo.png)
+
+
 &nbsp;
-
-
+&nbsp;
 
 
 
@@ -190,7 +195,7 @@ complex(0.,3.)
 
 
 
-## Arithmétique de base
+## Arithmétique de base {#arithmetique}
 
 Les opérateurs de base utilisables en Python sont :
 
@@ -245,7 +250,7 @@ Les opérations de priorité égale sont évaluées de gauche à droite à l'exc
 
 
 
-## Méthodes et attributs
+## Méthodes et attributs {#methodes}
 
 En Python, tout, y compris un nombre, est un **objet** ayant certains **attributs** accessibles grâce à la notation "point" : `<objet>.<attribut>`.
 Certains attributs sont des simples valeurs : les nombres complexes ont par exemple les attributs `real` et `imag` qui sont les parties réelles et imaginaires d'un nombre complexe.
@@ -277,7 +282,7 @@ Par exemple, les nombres complexes ont la méthode `conjugate` qui retourne le c
 
 
 
-## Fonctions mathématiques
+## Fonctions mathématiques {#mathematiques}
 
 `round` et `abs` sont deux fonctions proposées par défaut (natives).  
 `abs` retourne la valeur absolue d'un nombre entier ou décimal, ou le module d'un nombre complexe (c'est un exemple de polymorphisme : comportement différent en fonction du type de l'argument).
@@ -553,7 +558,8 @@ b
 
 `-2`
 
-Comment faire si on veut permuter les valeurs auxquelles sont liées deux variables ? Dès qu'on écrit `a = b`, la valeur initiale de `a` est perdue et si on commence par `b = a`, c'est la valeur initiale de `b` qui est perdue. Il faudrait donc utiliser une variable temporaire et écrire : `tmp = a`, `a = b` et `b = tmp`.  <br>Mais l'affectation parallèle de Python va nous permettre d'être plus élégants. Il suffit en effet d'une petite ligne :
+Comment faire si on veut permuter les valeurs auxquelles sont liées deux variables ? Dès qu'on écrit `a = b`, la valeur initiale de `a` est perdue et si on commence par `b = a`, c'est la valeur initiale de `b` qui est perdue. Il faudrait donc utiliser une variable temporaire et écrire : `tmp = a`, `a = b` et `b = tmp`.   
+Mais l'affectation parallèle de Python va nous permettre d'être plus élégants. Il suffit en effet d'une petite ligne :
 
 
 ```python

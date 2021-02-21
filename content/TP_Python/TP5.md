@@ -73,9 +73,8 @@ et le **produit vectoriel** de ces deux vecteurs.
 
 - Écrire d'abord une fonction `rel_1(a,b)` (de signature `rel_1(bool,bool)`$\rightarrow$ `bool`) qui retourne $\neg(a\lor b)$ et une fonction `rel_2(a,b)` (de signature `rel_2(bool,bool)`$\rightarrow$ `bool`) qui retourne $\neg a \land \neg b$.
 
-- Puis écrire une fonction `test_tauto(fct_1,fct_2)` (de signature `test_tauto(fonction,fonction)`$\rightarrow$ `bool`) qui teste si l'équivalence matérielle (correspondant à l'opérateur Python `==`) entre deux fonctions logiques (à deux entrées chacune) $\text{fct}_1(a,b)\leftrightarrow \text{fct}_2(a,b)$  est une tautologie (cela revient à déterminer si les deux fonctions sont d'accord dans tous les cas possibles, donc si leurs tables de vérité sont les mêmes).
-
-  La fonction `test_tauto` prouve donc l'équivalence logique entre les deux fonctions logiques&nbsp;:&nbsp;$\text{fct}_1\equiv \text{fct}_2$
+- Puis écrire une fonction `test_tauto(fct_1,fct_2)` (de signature `test_tauto(fonction,fonction)`$\rightarrow$ `bool`) qui teste si l'équivalence matérielle (correspondant à l'opérateur Python `==`) entre deux fonctions logiques (à deux entrées chacune) $\text{fct}_1(a,b)\leftrightarrow \text{fct}_2(a,b)$  est une tautologie (cela revient à déterminer si les deux fonctions sont d'accord dans tous les cas possibles, donc si leurs tables de vérité sont les mêmes).  
+La fonction `test_tauto` prouve donc l'équivalence logique entre les deux fonctions logiques&nbsp;:&nbsp;$\text{fct}_1\equiv \text{fct}_2$
 
 - Prouvez alors la **premiere loi de De Morgan** : $\neg(a\lor b)\equiv \neg a\land\neg b$.
 

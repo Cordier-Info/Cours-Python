@@ -74,7 +74,7 @@ os.listdir('.')
 
 
 
-## Lecture et écriture de fichiers
+## Lecture et écriture de fichiers {#lectureetecriture}
 
 Jusque-là, les différentes données de nos programmes étaient directement écrites dans le code et les sorties s'affichaient sur le shell.  
 
@@ -95,14 +95,14 @@ Un objet `file` est créé par l'utilisation de la fonction `open(nom du fichier
 f = open('monfichier.txt','w')
 ```
 
-Le premier argument, *nom du fichier*, est une chaîne contenant le nom du fichier. Ce nom peut être donné avec le chemin d'accès absolu ou seulement l'arborescence relative au dossier dans lequel le programme est exécuté. 
-En écrivant un nom sans chemin, le fichier se trouve dans le répertoire courant.
+- Le premier argument, *nom du fichier*, est une chaîne contenant le nom du fichier. Ce nom peut être donné avec le chemin d'accès absolu ou seulement l'arborescence relative au dossier dans lequel le programme est exécuté. 
+  En écrivant un nom sans chemin, le fichier se trouve dans le répertoire courant.
 
-Le deuxième argument, *mode*, est une chaîne d'un ou deux caractères décrivant la façon dont le fichier est utilisé.  
-*mode* peut être `r` quand le fichier n'est accédé qu'en lecture, `w` en écriture seulement (un fichier existant portant le même nom sera alors écrasé) 
-et `a` ouvre le fichier en mode ajout (toute donnée écrite dans le fichier est automatiquement ajoutée à la fin). `r+` ouvre le fichier en mode lecture/écriture. L'argument mode est optionnel, sa valeur par défaut est `r`.  
-`b` collé à la fin du mode indique que le fichier doit être ouvert en mode binaire c'est-à-dire que les données sont lues et écrites sous forme d'octets (type bytes). 
-Ce mode est à utiliser pour les fichiers contenant autre chose que du texte.
+- Le deuxième argument, *mode*, est une chaîne d'un ou deux caractères décrivant la façon dont le fichier est utilisé.  
+  *mode* peut être `r` quand le fichier n'est accédé qu'en lecture, `w` en écriture seulement (un fichier existant portant le même nom sera alors écrasé) 
+  et `a` ouvre le fichier en mode ajout (toute donnée écrite dans le fichier est automatiquement ajoutée à la fin). `r+` ouvre le fichier en mode lecture/écriture. L'argument mode est optionnel, sa valeur par défaut est `r`.  
+  `b` collé à la fin du mode indique que le fichier doit être ouvert en mode binaire c'est-à-dire que les données sont lues et écrites sous forme d'octets (type bytes). 
+  Ce mode est à utiliser pour les fichiers contenant autre chose que du texte.
 
 Les objets `file` sont fermés grâce à la méthode `close()` : `f.close()` par exemple. Python ferme les fichiers automatiquement lorsque le programme se termine.
 
@@ -112,7 +112,7 @@ Les objets `file` sont fermés grâce à la méthode `close()` : `f.close()` par
 
 
 
-### Écrire dans un fichier
+### Écrire dans un fichier {#ecrire}
 
 La méthode `write()` d'un objet `file` écrit une chaîne de caractères dans le fichier et renvoie le nombre de caractères inscrits. 
 
@@ -201,11 +201,30 @@ Vous apprendrez aussi à utiliser les méthodes des bases de données.
 
 {{%/ notice%}}
 
+***
+La fonction suivante permet d'ouvrir proprement un fichier en gérant l'exception qui serait levée par sa non présence et d'afficher quelques informations&nbsp;:
 
+```python
+def ouverture(nom_du_fichier) :
+    try :
+        fichier = open(nom_du_fichier,'r')
+    except IOError :
+        print("Oups ! Fichier absent...")
+        return
+    else : # bloc exécuté seulement si l'exception n'est pas rencontrée
+        lignes = fichier.readlines()
+        print('{} contient {} lignes.'.format(nom_du_fichier,len(lignes)))
+        fichier.close()
+    finally : # bloc exécuté dans tous les cas (que le fichier ait été ouvert ou non)
+        print('Terminé avec le fichier {}'.format(nom_du_fichier))
+    print('La première ligne de {} est:\n{}'.format(nom_du_fichier,lignes[0]))
+    # autres instructions
+    return
+```
 
 ---
 
-Dans cet exemple, on va créer un petit gif qui illustre le théorème de La Hire :  
+Dans cet autre exemple, on va créer un petit gif qui illustre le théorème de La Hire :  
 
 le programme produit un nouveau dossier `petitgif` dans lequel il crée 40 fichiers `svg` aux noms incrémentés (de `fig00.svg` à `fig39.svg`) décrivant des cercles et des segments.
 
@@ -269,7 +288,8 @@ for n, alpha in enumerate(alphas):
     print('</svg>', file=image)
 ```
 
-On peut utiliser ensuite le logiciel libre [ImageMagick software](https://imagemagick.org/index.php) qui permet de créer un gif à partir d'une série d'images via la ligne de commande (une fois dans le répertoire *petitgif*) :<br>`convert -delay 5 -loop 0 fig*.svg animation.gif`
+On peut utiliser ensuite le logiciel libre [ImageMagick software](https://imagemagick.org/index.php) qui permet de créer un gif à partir d'une série d'images via la ligne de commande (une fois dans le répertoire *petitgif*) :  
+`convert -delay 5 -loop 0 fig*.svg animation.gif`
 
 ![](/animation.gif)
 
@@ -406,7 +426,7 @@ a*2
 
 
 
-## Récupérer des données sur le web
+## Récupérer des données sur le web {#web}
 
 Exemple de programme :
 

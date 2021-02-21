@@ -109,7 +109,7 @@ len(salutation)
 
 
 
-## Caractères d'échappement
+## Caractères d'échappement {#echappement}
 
 Comme on peut utiliser `''` ou `""` pour définir une chaîne, on peut intégrer une citation dans une citation :
 
@@ -120,7 +120,9 @@ Comme on peut utiliser `''` ou `""` pour définir une chaîne, on peut intégrer
 
 `'Et il cria : "Mais pourquoi ?"'`
 
-Et pour ajouter encore un niveau de citation, ou pour sauter une ligne, ou pour mettre une apostrophe si notre chaîne est déjà encadrée par des apostrophes, ou pour... ? <br>On utilise les **caractères d'échappement**, introduits par un backslash "`\`" !  <br>Exemples :
+Et pour ajouter encore un niveau de citation, ou pour sauter une ligne, ou pour mettre une apostrophe si notre chaîne est déjà encadrée par des apostrophes, ou pour... ?   
+On utilise les **caractères d'échappement**, introduits par un backslash "`\`"&nbsp;!  
+Exemples :
 
 
 ```python
@@ -262,7 +264,8 @@ print('prépa ST\b\bTSI')
 
 ## Indexation et slicing
 
-**Indexer** une chaîne permet d'accéder à un caractère individuel de la chaîne. L'indice correspond à la position du caractère. Une chaîne de caractère est un exemple de **séquence** et comme pour toutes les séquences, l'**indice du premier élément est `0`** et l'indice du dernier élément d'une chaîne de n caractères est donc `n-1`.<br>Le caractère est retourné dans une chaîne de longueur 1.
+**Indexer** une chaîne permet d'accéder à un caractère individuel de la chaîne. L'indice correspond à la position du caractère. Une chaîne de caractère est un exemple de **séquence** et comme pour toutes les séquences, l'**indice du premier élément est `0`** et l'indice du dernier élément d'une chaîne de n caractères est donc `n-1`.  
+Le caractère est retourné dans une chaîne de longueur 1.
 
 
 ```python
@@ -418,7 +421,7 @@ b[-1:9:-1]
 
 `'xuejleiV'`
 
-Le pas de `-1` dans cette dernière expression correspond à une progression de droite à gauche. Cette découpe commence donc au dernier caractère (`-1` en première position), avance vers la gauche caractère par caractère (`-1` en dernière position) et s'arrête au caractère précédant le `9` dans ce sens, donc le caractère `10`.<br>
+Le pas de `-1` dans cette dernière expression correspond à une progression de droite à gauche. Cette découpe commence donc au dernier caractère (`-1` en première position), avance vers la gauche caractère par caractère (`-1` en dernière position) et s'arrête au caractère précédant le `9` dans ce sens, donc le caractère `10`.
 
 **Renverser une chaîne de caractères** devient très simple :
 
@@ -452,7 +455,7 @@ Pour tester si une chaîne contient une certaine sous-chaîne, on utilise l'opé
 
 
 
-## Méthodes liées aux chaînes
+## Méthodes liées aux chaînes {#methodeschaines}
 
 Les chaînes sont des objets Python **immuables**,  c.-à-d. qu'on ne peut pas réaffecter un caractère de la chaîne.
 
@@ -673,7 +676,7 @@ print(ligne, entête, ligne,
 
 
 
-## Formatage des chaînes de caractères
+## Formatage des chaînes de caractères {#formatage}
 
 Grâce à la méthode de chaînes de caractères `.format()`, la chaîne peut contenir la valeur d'une variable.  
 La syntaxe la plus simple est :
@@ -686,7 +689,8 @@ La syntaxe la plus simple est :
 `'2 plus 3 égale cinq'`
 
 Les arguments de la méthode `str.format()` sont insérés à la place des accolades "`{}`" dans la chaîne principale `str`.  
-Un nombre entre accolades se réfère à la position de l'objet passé à la méthode (on peut aussi utiliser des noms s'ils ont été affectés). Cela permet d'utiliser plusieurs fois le même argument.<br> Rq : la zone entre les accolades s'appelle champ de formatage.
+Un nombre entre accolades se réfère à la position de l'objet passé à la méthode (on peut aussi utiliser des noms s'ils ont été affectés). Cela permet d'utiliser plusieurs fois le même argument.  
+Rq : la zone entre les accolades s'appelle champ de formatage.
 
 
 ```python

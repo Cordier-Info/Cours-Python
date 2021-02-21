@@ -2,7 +2,6 @@
 title : "TP Python"
 chapter : True
 weight : 0
-#pre : "<b>1. </b>"
 ---
 
 
@@ -11,4 +10,4 @@ weight : 0
 
 
 
-Des exercices plus ou moins difficiles...
+Les exercices couvrent à peu près l'ensemble des chapitres.

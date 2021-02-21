@@ -54,7 +54,7 @@ On pourra utiliser la fonction `random.shuffle()` du package random qui mélange
 
 ## Exercice 3
 
-Les alcanes linéaires sont les hydrocarbures de formule brute $\text{C}_n\text{H}_{2n+2}$ dont les carbones forment une chaîne linéaire.  
+Les alcanes linéaires sont les hydrocarbures de formule brute $C_nH_{2n+2}$ dont les carbones forment une chaîne linéaire.  
 Écrire (dans `exo_3.py`) un programme donnant la formule semi-développée d'un tel alcane à partir d'une formule brute.  
 Par exemple : si `brut = 'C4H10'` alors le programme doit afficher `CH3-CH2-CH2-CH3`. 
 

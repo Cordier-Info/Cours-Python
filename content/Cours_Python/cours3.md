@@ -190,7 +190,7 @@ L[1::2]
 
 
 
-#### Mutabilité des listes
+#### Mutabilité des listes {#mutabilite}
 
 {{% notice warning%}} 
 Contrairement aux chaînes de caractères, les listes sont des objets **mutables**, c'est-à-dire qu'on peut modifier leur contenu.  {{% /notice %}}
@@ -280,7 +280,7 @@ lettres
 
 
 
-#### Méthodes
+#### Méthodes {#methodes}
 
 Le type `list` dispose, comme le type `string`, de méthodes supplémentaires, accessibles avec la notation point "`.`".  
 Et comme les listes sont des objets muables, elles peuvent être agrandies ou rétrécies "sur place" (sans avoir à copier le contenu dans un nouvel objet).  
@@ -538,14 +538,14 @@ print(x,y,z)
 
 
 
-## Objets itérables
+## Objets itérables {#iterables}
 
 {{% notice info%}} 
 Les chaînes de caractères, les listes et les tuples sont des exemple d'objets **itérables**&nbsp;: des objets composés d'un ensemble d'éléments  qui peuvent être sélectionnés un par un (=&nbsp;déballés ou unpacked en anglais).  
 {{% / notice %}} 
 
 {{% notice note%}} 
-Toutes les séquences sont des itérables, mais l'inverse n'est pas vrai (contre-exemple : les ensembles (set) et les dictionnaires).
+Toutes les séquences sont des itérables, mais l'inverse n'est pas vrai (les ensembles (sets), par exemple, sont des itérables mais pas des séquences).
 {{% / notice %}} 
 
 L'opérateur `*` permet de **déballer un itérable** (unpack). Cela peut s'avérer pratique lorsqu'une fonction prend en argument plusieurs éléments.  
@@ -579,7 +579,7 @@ C'est bien plus simple que d'aller récupérer les éléments de la liste en les
 ### Boucle `for`
 
 C'est souvent utile de récupérer et d'utiliser un à un chacun des éléments d'un objet itérable.  
-La syntaxe Python pour une telle opération est plutôt naturelle :
+La syntaxe Python pour une telle opération est plutôt naturelle :  
 **for** *élément* **in** *objet itérable* **:**
 
 
@@ -597,7 +597,9 @@ for fruit in liste_de_fruits :
 
 `pamplemousse`
 
-Chacun son tour, un élément de l'objet itérable `liste_de_fruits` est affecté à la variable `fruit` dans le block d'instructions qui suit le signe `:`.<br>Chaque ligne de ce bloc, le corps de la boucle, doit être indentée par le même nombre d'espaces (c'est recommandé d'utiliser 4 espaces ou une tabulation par niveau d'indentation). C'est cette indentation qui permet, en Python, de savoir qu'on est ou non toujours dans la boucle. <br>La structuration du code par indentation est une des principales caractéristiques du langage Python (et un des principaux griefs contre lui).
+Chacun son tour, un élément de l'objet itérable `liste_de_fruits` est affecté à la variable `fruit` dans le block d'instructions qui suit le signe `:`.  
+Chaque ligne de ce bloc, le corps de la boucle, doit être indentée par le même nombre d'espaces (c'est recommandé d'utiliser 4 espaces ou une tabulation par niveau d'indentation). C'est cette indentation qui permet, en Python, de savoir qu'on est ou non toujours dans la boucle.  
+La structuration du code par indentation est une des principales caractéristiques du langage Python (et un des principaux griefs contre lui).
 
 Une boucle peut très bien être imbriquée dans une autre boucle (il faut indenter le corps de la boucle intérieure d'un niveau de plus) :
 
@@ -730,7 +732,8 @@ for i in range(len(marsupiaux)) :
 `2  :  wombat`
 
 
-On peut réaliser la même chose plus efficacement en utilisant `enumerate()`.<br>Cette fonction prend un objet itérable en argument et produit, pour chaque élément de l'objet, un tuple (*numéro*, *élément*) associant un numéro à l'élément lui-même.
+On peut réaliser la même chose plus efficacement en utilisant `enumerate()`.  
+Cette fonction prend un objet itérable en argument et produit, pour chaque élément de l'objet, un tuple (*numéro*, *élément*) associant un numéro à l'élément lui-même.
 
 
 ```python
@@ -770,7 +773,8 @@ for i, marsupial in enumerate(marsupiaux,1) :
 
 ### `zip`
 
-Pour faire des boucles sur plusieurs séquences en même temps, on peut utiliser la fonction `zip()` afin d’associer les éléments des différentes séquences entre eux. <br>Elle crée un objet itérable composé de tuples couplant les termes de même indice des différentes séquences en argument.
+Pour faire des boucles sur plusieurs séquences en même temps, on peut utiliser la fonction `zip()` afin d’associer les éléments des différentes séquences entre eux.  
+Elle crée un objet itérable composé de tuples couplant les termes de même indice des différentes séquences en argument.
 
 
 ```python
@@ -907,7 +911,6 @@ Les méthodes `keys` et `values` permettents de récupérer les *clés* et *vale
 import matplotlib.pyplot as plt
 clés = effectifs.keys()
 valeurs = effectifs.values()
-plt.figure(figsize=(10,6))
 plt.bar(clés, valeurs)
 plt.show()
 ```
@@ -989,7 +992,7 @@ print(P)
 
 &nbsp;
 
-## Listes par compréhension
+## Listes par compréhension {#comprehension}
 
 La construction de listes par compréhension permet de créer une liste à partir d'un autre objet itérable en une seule ligne de code.  
 Par exemple, étant donné une liste de nombres, une liste des carrés de ces nombres peut être créée ainsi :
@@ -1043,7 +1046,8 @@ On l'a dit, la construction par compréhension se base sur n'importe quel itéra
 
 
 
-Enfin, une liste construite par compréhension peut être imbriquée.<br>Le code suivant va permettre d'applatir une liste de listes :
+Enfin, une liste construite par compréhension peut être imbriquée.  
+Le code suivant va permettre d'applatir une liste de listes :
 
 ```python
 vliste = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
@@ -1098,9 +1102,30 @@ for l in MT :
 
 Notons toutefois que le package de programmation scientifique NumPy (étudié plus tard) propose une méthode bien meilleure pour gérer les matrices.
 
+***
 
+Les dictionnaires aussi ont droit à leur construction par compréhension. Dans l'exemple suivant, on crée un dictionnaire reportant le nombre de fois que chaque mot apparaît dans un texte.
+```python
+texte = """texte avec répétitions servant de test pour déterminer le nombre de répétitions de chaque mot dans le texte"""
+decompte = {mot: texte.split().count(mot) for mot in set(texte.split())}
+decompte
+```
 
-&nbsp;
+`
+{'pour': 1,
+ 'déterminer': 1,
+ 'avec': 1,
+ 'servant': 1,
+ 'texte': 2,
+ 'le': 2,
+ 'chaque': 1,
+ 'test': 1,
+ 'mot': 1,
+ 'nombre': 1,
+ 'répétitions': 2,
+ 'de': 3,
+ 'dans': 1}
+`
 
 &nbsp;
 

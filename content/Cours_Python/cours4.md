@@ -148,7 +148,7 @@ print(a)
 
 `pgcd(1920,1080) = 120`
 
-La boucle continue jusqu'à ce que `b` divise `a`. À chaque itération, `b` prend la valeur du reste de la division euclidienne de `a` par `b` et `a` prend l'ancienne valeur de `b`.<br>
+La boucle continue jusqu'à ce que `b` divise `a`. À chaque itération, `b` prend la valeur du reste de la division euclidienne de `a` par `b` et `a` prend l'ancienne valeur de `b`.  
 `while b` est équivalent à `while b != 0` puisque la valeur `0` est évaluée comme fausse.
 
 
@@ -167,7 +167,7 @@ Python propose 3 instructions supplémentaires pour contrôler le flux d'un prog
 
 ### `break`
 
-L'instruction `break`, placée dans le bloc d'instructions d'une boucle, met immédiatement fin à cette boucle lorsqu'arrive son tour d'être exécutée.<br>
+L'instruction `break`, placée dans le bloc d'instructions d'une boucle, met immédiatement fin à cette boucle lorsqu'arrive son tour d'être exécutée.  
 L'exécution reprend à l'instruction suivant la boucle.  
 
 
@@ -237,7 +237,7 @@ Si `i` n'est pas divisible par 2 et donc que `i % 2 = 1`, ce qui est considéré
 
 ### `else`
 
-On peut faire suivre une boucle `for` ou `while` d'un bloc introduit par une instruction `else`. Ce bloc n'est exécuté que si la boucle se termine "normalement", i.e. sans rencontrer un `break`.<br>
+On peut faire suivre une boucle `for` ou `while` d'un bloc introduit par une instruction `else`. Ce bloc n'est exécuté que si la boucle se termine "normalement", i.e. sans rencontrer un `break`.  
 Pour voir son utilité, reprenons le code repérant la première occurrence d'un nombre négatif.
 
 
@@ -295,4 +295,56 @@ else :
 
 
 
-## La gestion d'exceptions
+## La gestion des exceptions
+
+
+
+Python distingue deux types d'erreurs : 
+
+- les **erreurs de syntaxe** : elles correspondent à des erreurs dans la grammaire du langage et sont toujours fatales. Elles se soldent par un pénible `Syntaxerror : invalid syntax` ou encore un `IndentationError: expected an indented block`. Exemple typique : `if a = 2 :` (au lieu de `if a == 2`).
+- les **exceptions** : erreurs non syntaxiques rencontrées pendant l'exécution. Exemples : `ZeroDivisionError`, `NameError`, `TypeError`. Elles nes sont pas forcément fatales si on les gère en amont.
+
+Gestion des exceptions : on peut indiquer à l'interprète quoi faire s'il rencontre une exception lors de l'exécution. Pour cela, on utilise les instructions `try :`  et `except :`.   
+Le bloc introduit par `try` correspond à ce qui doit être exécuté en l'absence d'exception, et celui introduit par `except` permet de gérer une exception donnée.  
+
+Prenons l'exemple de la gestion d'une division par zéro :
+
+```python
+for i in range(-2,3) :
+    y = 1 / i
+    print('1 /',i,'=',y)
+```
+
+`1 / -2 = -0.5`  
+`1 / -1 = -1.0`    ![](/exception.png)
+
+L'exécution a été interrompue... Mais si on utilise `try / except`&nbsp;:
+
+```python
+for i in range(-2,3) :
+    try :
+        y = 1 / i
+        print('1 /',i,'=',y)
+    except ZeroDivisionError :
+        print('1 / 0 : Division par zéro impossible !')
+```
+`1 / -2 = -0.5`  
+`1 / -1 = -1.0`   
+`1 / -1 = -1.0`    
+`1 / 0 : Division par zéro impossible !`  
+`1 / 1 = 1.0`   
+`1 / 2 = 0.5`  
+
+L'exécution va à son terme.
+
+Autre exemple classique : gérer les entrées farfelues de l'utilisateur.
+```python
+while True:
+    try :
+        x = int(input("Entrez un nombre svp : "))
+        break
+    except ValueError :
+        print("Oops! Pas un nombre valide. Essayez à nouveau... ")
+```
+On verra un [dernier exemple un peu plus touffu](../cours6/#lire-un-fichier) dans le chapitre 6 sur la manipulation de fichier.
+

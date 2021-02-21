@@ -84,7 +84,7 @@ Les fonctions peuvent aussi être **imbriquées** mais une fonction définie à 
 
 
 
-## Chaîne de documentation
+## Chaîne de documentation {#chainededocumentation}
 
 La première ligne du bloc d'une fonction peut servir à la documenter par une chaîne de caractères.
 
@@ -131,7 +131,7 @@ rac.__doc__
 
 
 
-## Argument nommé
+## Argument nommé {#argumentnomme}
 
 Dans l'exemple précédent, les arguments sont passés à la fonction dans l'ordre dans lequel ils apparaissent dans la définition. 
 Si on veut pouvoir les passer dans un ordre arbitraire, on nomme explicitement les arguments :
@@ -156,7 +156,7 @@ racines(b=-1., c=-6., a =1)
 
 
 
-## Valeur par défaut des arguments
+## Valeur par défaut des arguments {#valeurpardefaut}
 
 On peut aussi donner à une fonction un **argument 'optionnel'** : si l'appel de la fonction ne précise pas l'argument, une valeur par défaut est fournie.
 
@@ -176,7 +176,8 @@ exprime_longueur(10.1)
 
 `'La longueur vaut 10.10 m'`
 
-Attention, les arguments par défaut sont affectés dès que l'interprète rencontre la définition pour la première fois. Cela peut amener à des résultats inattendus, en particulier avec des objets muables. <br>Exemple :
+Attention, les arguments par défaut sont affectés dès que l'interprète rencontre la définition pour la première fois. Cela peut amener à des résultats inattendus, en particulier avec des objets muables.   
+Exemple :
 
 
 ```python
@@ -222,7 +223,7 @@ exprime_longueur(10.1)
 
 
 
-## Portée des variables
+## Portée des variables {#porteedesvariables}
 
 {{% notice info%}}
 Une fonction peut définir et utiliser ses propres variables. Ces variables sont alors dites **locales**.   

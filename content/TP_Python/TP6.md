@@ -50,7 +50,6 @@ Reste à écrire les différentes fonctions...
 Les fichiers image *portable bitmap file format*  `.pbm` sont extrèmement simples. C'est juste un texte ASCII qui comporte :
 
 - un nombre magique indiquant le format : `P1`
-
 - la largeur $L$ et la hauteur $H$ de l'image : `5 3` dans l'exemple
 - puis une suite de $L\times H$ (= 15 dans notre cas) 1 et 0 correspondants à des pixels noirs ou blancs.
 

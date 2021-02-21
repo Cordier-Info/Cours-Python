@@ -36,6 +36,8 @@ Combien de fois une feuille de papier d'épaisseur $e = 0,1$ mm doit-elle être 
 
 &nbsp;
 
+&nbsp;
+
 
 
 ## Exercice 3
@@ -53,14 +55,14 @@ $ S=2\pi a^2\left(1+\frac{1-e^2}{e}\text{artanh}(e)\right) $ avec $e^2=1-\frac{c
 
 Utiliser cette formule dans un script Python (`exo_3.py`) pour déterminer et imprimer la superficie de la Terre et comparer au résultat obtenu en approximant la Terre comme une sphère de rayon 6371 km.
 
-&nbsp;
+![img](/wgs.png?width=400)
 
 
 
 
 ## Exercice 4
 
-Écrire dans `exo_4.py` une expression d'une seule ligne permettant de déterminer si une chaîne de caractère est un palindrome.
+Écrire dans `exo_4.py` une expression d'une seule ligne permettant de déterminer si une chaîne de caractère est un **palindrome**.
 
 &nbsp;
 
